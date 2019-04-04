@@ -1,0 +1,71 @@
+@startuml
+
+title Iterator
+
+note as N1
+  迭代器设计模式：
+
+  1、在集合接口中声明创建迭代器，在其实现类中实现
+  数据的添加、保存、获取，并创建具体的迭代器
+  2、在迭代器中持有集合类实例，在遍历中根据集合的数据
+  获取数据和停止遍历
+
+  意义：
+  1、使数据存储、遍历、使用三者解耦，利于程序的扩展性
+  2、对于使用者隐藏了器内部存储方式
+
+  使用场景：需要保存和遍历对象时
+
+end note
+
+note left of Congregation
+ 集合的接口类，内部包含
+ 创建Iterator的抽象方法
+end note
+
+interface Congregation {
+ +{abstract}{method}iterator
+}
+
+note right of CollectionImplementation
+ 集合的接口的实现类，首先实现迭代器方法
+ 创建具体的迭代器，内部采用集合
+ 或数组等方式保存数据，对外提供查询
+ 和获取的方法
+end note
+class CollectionImplementation {
+ -count
+ -list
+ +{method}add
+ +{method}get
+ +{method}iterator
+}
+
+note left of Iterator
+ 迭代器接口类，内部包含
+ 迭代器遍历的必须的两个方法
+end note
+interface Iterator {
+ +{abstract}{method}hasNext
+ +{abstract}{method}next
+}
+note right of IteratorImplementation
+ 迭代器的实现类，内部持有集合类的引用，
+ 重写接口方法，根据持有的集合获取和遍历
+ 数据
+end note
+class IteratorImplementation {
+ -index
+ -collectionImplementation
+ +{method}hasNext()
+ +{method}next()
+}
+
+Congregation <|.. CollectionImplementation
+Congregation --> "create" Iterator
+Iterator <|.. IteratorImplementation
+IteratorImplementation o-- CollectionImplementation
+
+
+
+@enduml

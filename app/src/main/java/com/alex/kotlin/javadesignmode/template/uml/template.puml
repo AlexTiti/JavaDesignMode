@@ -1,0 +1,57 @@
+@startuml
+
+title Template Method
+
+note as N1
+  模版设计模式：
+
+  1、在父类中声明所有功能的抽象方法，并定义整个流程中
+  所有抽象方法的调用顺序，即依托抽象方法实现整体
+  功能架构
+  2、根据具体的使用场景实现不同的子类，重写抽象方法实现
+  对应的功能，子类无需关心整体的执行逻辑
+
+  意义：
+  1、使整个执行流程只在抽象类中定义，便于扩展和修改
+  2、子类无需处理流程，简化子类的程序
+
+  使用场景：模块的执行流程一致，但细节处理不一致时
+
+end note
+
+note left of AbstractTemplate{
+抽象类声明希望子类实现的
+功能方法，同时定义整个流程
+中方法执行顺序
+}
+abstract class AbstractTemplate{
+ + {abstract} {method} method1
+ + {abstract} {method}method2
+ + {abstract} {method}method3
+ + {method}action
+}
+
+note bottom of TemplateFirst{
+继承抽象类，根据实际
+功能实现抽象方法
+}
+class TemplateFirst{
+ + {method}method1
+ + {method}method2
+ + {method}method3
+}
+
+note left of TemplateSecond{
+继承抽象类，根据实际功能
+实现抽象方法
+}
+class TemplateSecond{
+ + {method}method1
+ + {method}method2
+ + {method}method3
+}
+
+AbstractTemplate <|-- TemplateFirst
+AbstractTemplate <|-- TemplateSecond
+
+@enduml

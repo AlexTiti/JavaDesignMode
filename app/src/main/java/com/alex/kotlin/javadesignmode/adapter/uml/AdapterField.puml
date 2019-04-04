@@ -1,0 +1,56 @@
+@startuml
+
+title 对象的适配器模式
+
+note as N1
+  适配器设计模式：
+
+  将现有的功能模块经或转换后作用于不同的需求模块中
+
+  意义：
+  1、重用现有的功能模块
+  2、中间使用适配器转换衔接两者，
+  避免了原有代码的修改实现开闭原则
+
+  使用场景：提供的功能和需求之间需要转换时
+
+end note
+
+note left of Client{
+客户端持有Adapter，
+并调用Adapter方法实现功能
+}
+class Client{
+ +adapter
+}
+
+note top of Target{
+声明客户端需要的功能方法
+}
+interface Target{
+ +{method}method
+}
+
+note top of Adaptee{
+声明现有设备所能
+提供的功能方法
+}
+class Adaptee{
+  +{method}actionMethod
+ }
+
+ note left of Adapter{
+ 实现Target接口、继承Adapee
+ 在调用方法时转换Adapee提供的功能
+ }
+class Adapter{
+ -adaptee
+ +{method}method
+}
+
+Target <|.. Adapter
+Adaptee --o Adapter
+Client o-- Adapter
+
+
+@enduml

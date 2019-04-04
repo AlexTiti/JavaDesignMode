@@ -1,0 +1,38 @@
+@startuml
+
+title Prototype
+
+note as N1
+   原型模式：
+
+   1、根据现有的实例直接创建实例，
+   避免了类的出现同时能复制对象
+   保存的信息
+
+   意义：
+   1、对象直接克隆实例，避免了类的依赖
+   2、直接复制并使用对象的信息，
+   且修改不会影响原对象
+
+   使用场景：
+   1、需要创建大量相似的类
+   2、不方便使用类名创建实例
+   3、需要直接使用现有对象的信息
+end note
+
+interface Prototype{
+ + {abstract} {method} cloneProduct
+}
+
+class PrototypeImpl{
+ + {method} cloneProduct
+}
+
+class Client{
+
+}
+
+PrototypeImpl ..|> Prototype
+Client "use" --> Prototype
+
+@enduml

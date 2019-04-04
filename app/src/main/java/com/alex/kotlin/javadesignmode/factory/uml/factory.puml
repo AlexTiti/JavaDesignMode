@@ -1,0 +1,49 @@
+@startuml
+
+title Factory
+
+note as N1
+  工厂设计模式：
+
+  1、根据具体的功能类抽象出产品接口，然后定义创建产品
+  的工厂接口和抽象方法，
+  2、针对每种具体的Product，实现其工厂接口和产品接口
+
+  意义：
+  1、按照工厂生产的模式实现对象的创建，将产品的创建解耦出来
+  利于程序的扩展
+
+  使用场景：由多个类似功能的实现需求
+
+end note
+
+
+interface ProductFactory{
+   + {abstract} {method} createProduct
+}
+
+interface Product{
+   + {abstract} {method} doAction
+}
+
+note left of ObjectProduct{
+ Product的实现类，
+ 定义具体的产品类和功能
+}
+class ObjectProduct {
+ +{method}doAction
+}
+note left of ObjectProductFactory{
+ 具体产品的工厂类
+ 创建指定的Product实现类
+}
+class ObjectProductFactory{
+  +{method}createProduct
+}
+
+Product <|.. ObjectProduct
+ProductFactory <|.. ObjectProductFactory
+ProductFactory --> Product : "create"
+ObjectProductFactory --> ObjectProduct : "create"
+
+@enduml
