@@ -11,7 +11,6 @@ interface Iterator {
      * 判断是否有下一条数据
      */
     fun hasNext(): Boolean
-
     /**
      * 根据下标遍历获取数据
      */

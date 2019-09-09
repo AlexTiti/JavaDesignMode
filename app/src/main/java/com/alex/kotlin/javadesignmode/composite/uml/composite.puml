@@ -1,0 +1,45 @@
+@startuml
+
+title Composite
+
+note as N1
+  Composite模式
+
+  当容器和内容具有一致性，使用Composite模式
+  整理数据结构（文件系统结构）
+
+  意义：容器中可以放内容也可以放容器
+       形成内容和容器的递归关系保存数据
+
+  使用场景：存在类似文件系统这样的容器和
+       内容的一致性关系
+end note
+
+abstract class Component{
+ +{method}method()
+ +{method}add()
+ +{method} {abstract}get()
+ +{method} {abstract}size()
+}
+
+class Leaf{
+ +{method} get()
+ +{method} size()
+}
+class Composite {
+  +{method} get()
+  +{method} size()
+  +{method}method()
+  +{method}add()
+}
+
+class Client {
+ + component
+}
+
+Leaf --|>  Component
+Composite --|>  Component
+Composite o-->  Component
+Client o-->  Component
+
+@enduml

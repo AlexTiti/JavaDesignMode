@@ -1,0 +1,48 @@
+@startuml
+
+note as N1
+ Bridge 设计模式：
+
+ 功能结构：使用继承的关系搭建功能框架
+          在增加功能时只需扩展现有的类
+
+ 实现结构：抽象功能接口，实现类重写实际功能
+          在需要增加实现时，只需增加新增的实现类
+
+ 桥接模式：使功能结构和实现结构相分离
+
+ 意义：利于程序的扩展和解耦
+
+end note
+
+
+ class Function{
+ - impl
+ + {method} actionAdd
+ + {method} actionPlus
+}
+
+interface  Implementer{
+
+ + {method} {abstract}  add()
+ + {method} {abstract}  plus()
+
+}
+
+class ImplementerImpl{
+ + {method} add()
+ + {method} plus()
+}
+class AddFunction{
+ + {method} action
+}
+
+ImplementerImpl ..|> Implementer
+Client -> AddFunction
+AddFunction --|> Function
+Function o-> ImplementerImpl
+
+
+
+
+@enduml

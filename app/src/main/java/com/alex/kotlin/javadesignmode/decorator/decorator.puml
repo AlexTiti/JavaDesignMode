@@ -1,0 +1,74 @@
+@startuml
+
+title Decorator
+
+note as N1
+装饰模式：
+
+通过对象的包装实现功能的扩展
+
+意义：不修改对象实现功能扩展
+     接口透明实现嵌套调用
+
+场景：包装对象和被包装对象具有一致性
+     通过包装对象扩展不同的功能
+
+end note
+
+note right of Component{
+被包装对象的抽象类，
+声明实现功能的抽象方法
+}
+
+abstract class Component{
+
+ + {abstract} {method} action()
+ + {abstract} {method} doAction()
+
+}
+
+note left of Decorator{
+包装对象的抽象类，持有被
+包装对象并在其基础上扩展
+功能；
+继承被包装类实现接口透明
+}
+abstract class Decorator{
+
+ + component
+
+}
+
+note right of ConcreteComponent{
+具体实现的被包装类，实现最基础的功能
+}
+class ConcreteComponent{
+
+ + {method} action()
+ + {method} doAction()
+}
+
+note left of ConcreteDecorator{
+实现具体功能的包装类，
+扩展持有对象的功能
+}
+class ConcreteDecorator{
+
+ + component
+
+ + {method} action()
+ + {method} doAction()
+
+}
+
+
+
+
+ConcreteComponent --|> Component
+ConcreteDecorator --|> Decorator
+Decorator --|> Component
+Decorator o--> Component
+
+
+
+@enduml

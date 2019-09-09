@@ -1,0 +1,17 @@
+@startuml
+
+ class Original{
+
+ templeMemory
+
+ createMementoInfo()
+ restoreMementoInfo()
+ }
+class Memento{
+memory
+}
+
+
+Client --> Original
+Original o--> Memento
+@enduml

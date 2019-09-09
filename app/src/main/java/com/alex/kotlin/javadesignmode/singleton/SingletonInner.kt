@@ -8,10 +8,6 @@ package com.alex.kotlin.javadesignmode.singleton
  */
 class SingletonInner private constructor() {
 
-    companion object {
-        fun getInstance() = SingleHolder.singletonInner
-    }
-
     class SingleHolder {
         companion object {
             val singletonInner = SingletonInner()

@@ -7,31 +7,11 @@ package com.alex.kotlin.javadesignmode.template
  * @desc ...
  */
 abstract class AbstractTemplate {
-
-    /**
-     * 起床之后的事情
-     */
-   protected abstract fun weakUp()
-
-    /**
-     * 进入办公室
-     */
-    protected abstract fun enteringTheOffice()
-
-    /**
-     * 打开电闹
-     */
-    protected abstract fun openCompute()
-
-    /**
-     * 工作
-     */
-    protected abstract fun doJob()
-
-    /**
-     * 回家
-     */
-    protected abstract fun goHome()
+    protected abstract fun weakUp() //起床之后的事情
+    protected abstract fun enteringTheOffice() //进入办公室
+    protected abstract fun openCompute() //打开电脑
+    protected abstract fun doJob() //工作
+    protected abstract fun goHome()  //回家
 
     fun actionForWorker() {
         weakUp()

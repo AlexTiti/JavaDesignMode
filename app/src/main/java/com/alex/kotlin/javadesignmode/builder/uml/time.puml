@@ -1,0 +1,14 @@
+@startuml
+
+title Bulder
+
+Client -> ConcreteBuilder  : create
+Client -> Director :create
+Client -> Director :construct
+Director -> ConcreteBuilder : printFirst
+ConcreteBuilder --> Director
+Director -> ConcreteBuilder : printSecond
+ConcreteBuilder --> Director
+Director --> Client
+
+@enduml

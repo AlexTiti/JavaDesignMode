@@ -1,0 +1,30 @@
+@startuml
+
+title  Command
+
+note right of Command{
+命令接口，声明要执行的方法
+}
+interface Command
+
+note left of CommandImpl{
+实现命令方法
+}
+class CommandImpl
+class Client
+note right of Invoke{
+命令的发送者，内部保存
+Command对象
+}
+class Invoke
+note right of Receiver{
+命令最终的执行者
+}
+class Receiver
+
+CommandImpl ...|> Command
+Invoke o---> Command
+CommandImpl o---> Receiver
+Client --> Invoke
+
+@enduml

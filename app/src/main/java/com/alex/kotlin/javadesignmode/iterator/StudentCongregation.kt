@@ -7,25 +7,19 @@ package com.alex.kotlin.javadesignmode.iterator
  * @desc ...
  */
 class StudentCongregation : Congregation {
-
    private val list by lazy {
         arrayListOf<Student>()
     }
-
     override fun createIterator(): StudentIterator {
         return StudentIterator(this)
     }
-
     fun getSize():Int{
         return list.size
     }
-
     fun add(student: Student){
         list.add(student)
     }
-
     fun get(index : Int): Student{
         return list[index]
     }
-
 }

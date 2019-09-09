@@ -1,6 +1,6 @@
 @startuml
 
-title Template Method
+title Template
 
 note as N1
   模版设计模式：

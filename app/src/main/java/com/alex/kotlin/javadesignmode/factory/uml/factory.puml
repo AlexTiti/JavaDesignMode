@@ -43,7 +43,6 @@ class ObjectProductFactory{
 
 Product <|.. ObjectProduct
 ProductFactory <|.. ObjectProductFactory
-ProductFactory --> Product : "create"
 ObjectProductFactory --> ObjectProduct : "create"
 
 @enduml

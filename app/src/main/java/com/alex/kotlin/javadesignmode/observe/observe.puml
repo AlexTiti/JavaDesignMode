@@ -1,0 +1,27 @@
+@startuml
+
+interface Observer{
+    action()
+}
+
+class MyObserver{
+ action()
+}
+
+interface Observable{
+  observer
+  addObserver()
+  removeObserver()
+  notify()
+}
+
+class MyObservable{
+                    addObserver()
+                    removeObserver()
+                    notify()
+                  }
+
+MyObserver ..|> Observer
+MyObservable ..|> Observable
+Observable o--> Observer
+@enduml

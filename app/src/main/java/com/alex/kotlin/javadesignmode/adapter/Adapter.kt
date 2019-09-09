@@ -7,11 +7,9 @@ package com.alex.kotlin.javadesignmode.adapter
  * @desc ...
  */
 class Adapter : PrintString ,PrintInt(){
-
     override fun print(message : String) {
         when(message){
             "123" -> {printInt(123)}
         }
-
     }
 }

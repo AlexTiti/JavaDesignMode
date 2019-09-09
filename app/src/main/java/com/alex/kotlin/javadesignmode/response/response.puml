@@ -1,0 +1,28 @@
+@startuml
+
+title Chain of Responsibility
+
+note left of Support{
+责任链接口，内部保存着
+Support对象，在执行action
+方法时会判断当前对象是否处理
+如果不处理交给next处理，
+以此类推
+}
+abstract class Support{
+- next
++ action()
+}
+class SupportFirst{
++ action()
+}
+class SupportSecond{
++ action()
+}
+
+Client --> Support
+SupportFirst ..|> Support
+SupportSecond ..|> Support
+Support o--> Support
+
+@enduml

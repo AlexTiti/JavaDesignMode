@@ -9,9 +9,7 @@ import android.util.Log
  * @desc ...
  */
 open class PrintInt {
-
    protected fun printInt(number : Int){
         Log.e("输出数字","number = $number")
     }
-
 }

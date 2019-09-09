@@ -1,0 +1,46 @@
+@startuml
+
+
+title Visitor
+
+note as N1
+  Visitor模式
+
+  在Composite模式的基础上分离对数据的处理
+
+  意义：分离数据结构和数据处理
+       实现开闭原则
+
+  使用场景：对存在结构关系的数据、对象进行处理
+end note
+
+interface Element {
++ {abstract}{method} accept
+}
+
+interface Visitor{
++ {abstract}{method} visitor
++ {abstract}{method} visitorAction
+}
+
+class ConcreteVisitor{
++ {method} visitor
++ {method} visitorAction
+}
+
+class ConcreteElement{
++ {method} accept
+}
+
+class ConcreteDirectoryElement{
++ {method} accept
++ element
+}
+
+ConcreteElement ..|> Element
+ConcreteDirectoryElement ..|> Element
+ConcreteVisitor ..|> Visitor
+
+
+
+@enduml

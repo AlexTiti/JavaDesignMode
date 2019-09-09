@@ -1,0 +1,52 @@
+@startuml
+
+title 代理模式
+
+note as N1
+  代理设计模式：
+
+  使用代理对象和实现的方法去代理真实对象的功能
+
+  使用场景：当已有的方法或工具需要修改时，使用代理
+  实现功能的修改
+
+end note
+
+note left of Subject{
+创建统一的接口，将需要代理修改的方法
+在接口中声明
+}
+interface Subject{
+ +{method}get
+ +{method}set
+ +{method}action
+}
+
+note left of Proxy{
+创建代理类，在代理类中实现接口方法
+并持有被代理对象，在需要使用真实对
+象时实例化，然后调用方法
+}
+class Proxy{
+ +{field}realSubject
+ +{method}get
+ +{method}set
+ +{method}action
+}
+
+note right of RealSubject{
+真实的对象，内部保存者原来的
+方法和逻辑
+}
+class RealSubject{
+ +{method}get
+ +{method}set
+ +{method}action
+}
+
+
+Subject <.. RealSubject
+Subject <.. Proxy
+RealSubject <--o  Proxy
+
+@enduml

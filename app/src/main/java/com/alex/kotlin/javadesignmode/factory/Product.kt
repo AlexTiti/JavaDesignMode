@@ -7,6 +7,5 @@ package com.alex.kotlin.javadesignmode.factory
  * @desc ...
  */
 interface Product {
-
     fun action()
 }

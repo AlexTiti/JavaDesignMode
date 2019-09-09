@@ -1,0 +1,13 @@
+@startuml
+
+title Bridge
+
+Client -> ImplementerImpl  : create
+Client -> Abstract :create
+Client -> Abstract :cactionAdd
+Abstract -> ImplementerImpl : actionAdd
+
+ImplementerImpl --> Abstract
+
+Abstract --> Client
+@enduml

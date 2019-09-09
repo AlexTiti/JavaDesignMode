@@ -9,11 +9,8 @@ import android.graphics.Color
  * @desc ...
  */
 class CarProduct : BaseProduct(){
-
     var coclor = "红色"
-
-    fun createClone(): BaseProduct {
-        return super.clone() as BaseProduct
+    fun createClone(): CarProduct {
+        return super.clone() as CarProduct
     }
-
 }

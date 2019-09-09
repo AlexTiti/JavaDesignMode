@@ -1,0 +1,20 @@
+@startuml
+
+abstract class AbstractExpress{
+interpret()
+}
+
+class TerminalExpression{
+interpret()
+}
+class NonterExpression{
+childExpression
+interpret()
+}
+
+
+Client --> AbstractExpress
+TerminalExpression --|> AbstractExpress
+NonterExpression --|> AbstractExpress
+
+@enduml

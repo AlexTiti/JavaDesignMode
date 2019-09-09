@@ -1,0 +1,37 @@
+@startuml
+
+title Strategy
+
+note as N1
+  策略模式：
+
+  1、声明策略接口，让具体的策略去实现
+  2、执行时根据具体传入的策略去执行
+
+  意义：保证整个程序中的策略可以整体改变
+  或替换
+
+  使用场景：肯能存在修改算法或计算的方式
+end note
+
+interface Strategy{
+ + {abstract} {method} actionStrategy
+}
+
+class NumberStrategy{
++ {method} actionStrategy
+}
+
+class DoubleStrategy{
++ {method} actionStrategy
+}
+
+class Player{
+ + strategy
+}
+
+NumberStrategy ..|> Strategy
+DoubleStrategy ..|> Strategy
+Player o--> Strategy
+
+@enduml

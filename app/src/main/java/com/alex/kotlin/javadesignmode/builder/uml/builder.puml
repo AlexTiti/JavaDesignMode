@@ -1,0 +1,43 @@
+@startuml
+
+note as N1
+ Builder 设计模式：
+
+ 从功能结构相同但具体内容不同的
+ 执行逻辑中抽象出功能的组成架构
+
+ 意义：
+ 1.实际内容和功能结构解耦
+ 2.Director和Client不需要知道具体的处理逻辑
+ 3.有利于程序功能的扩展
+
+ 使用场景：同一功能处理不同数据
+
+end note
+
+interface Builder{
+ + {abstract} {method} buildFirst
+ + {abstract} {method} buildSecond
+ + {abstract} {method} buildThird
+}
+
+class ConcreteBuilder{
+ +  {method} buildFirst
+ +  {method} buildSecond
+ +  {method} buildThird
+}
+
+class Director{
+ - builder
+ + {method} construct
+}
+
+class Client{
+}
+
+ConcreteBuilder ..|> Builder
+Director o-- Builder
+Client  --> Director : "Use"
+Client  --> Builder : "Use"
+
+@enduml

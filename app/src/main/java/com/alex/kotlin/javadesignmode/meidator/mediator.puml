@@ -1,0 +1,28 @@
+@startuml
+
+interface Action{
+action()
+}
+class First{
+action()
+}
+class Second{
+action()
+}
+class Meidator{
+ -first
+ -second
+ action()
+}
+
+First ..|> Action
+Second ..|> Action
+Meidator o--> First
+Meidator o--> Second
+
+Client --> Meidator
+
+
+
+
+@enduml

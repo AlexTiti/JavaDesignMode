@@ -1,0 +1,13 @@
+@startuml
+
+class Client
+class FlyWeight
+class FlyWeightFactory{
+- {field} pool
++ {method} getFlyWeight
+}
+
+Client --> FlyWeightFactory
+FlyWeightFactory o--> FlyWeight
+Client --> FlyWeight
+@enduml

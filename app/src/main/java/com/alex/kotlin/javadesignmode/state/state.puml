@@ -1,0 +1,38 @@
+@startuml
+
+title State
+
+note left of Control{
+内部持有State对象
+}
+class Control{
+  -state
+  setState()
+}
+note left of State{
+状态接口，声明不同状态
+下需要执行的方法
+}
+interface State{
+methodA()
+methodB()
+methodC()
+}
+
+class StateDay{
+methodA()
+methodB()
+methodC()
+}
+
+class StateNight{
+methodA()
+methodB()
+methodC()
+}
+
+StateDay ..|> State
+StateNight ..|> State
+Control o--> State
+
+@enduml
